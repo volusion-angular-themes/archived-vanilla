@@ -1,7 +1,7 @@
 @import 'compass';
 
 // Core variables and mixins
-@import 'style-guide/theme-vars'; // Custom Theme Variables & Configuration
+@import 'style-guide/variables'; // Custom Theme Variables & Configuration
 @import 'core/base/mixins';
 
 // Reset
@@ -53,5 +53,5 @@
 @import 'utilities/utilities';
 @import 'utilities/responsive-utilities';
 
-// Theme - Method
-@import 'style-guide/style-guide';
+// Theme
+@import 'style-guide/theme';
