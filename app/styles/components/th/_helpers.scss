@@ -1,24 +1,33 @@
-%inline-block {
-  @include inline-block;
-}
-
-%opacity-80 {
-  @include opacity(0.8);
-}
-
 %animate-color-default {
   @include transition(color, 0.2s, ease-in-out);
 }
 
+%font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%inline-block {
+  @include inline-block;
+}
+
+%opacity-75 {
+  @include opacity(0.75);
+}
+
+%opacity-100 {
+  @include opacity(1);
+}
+
 %placeholder-text {
   @include input-placeholder {
-    color: map-get($colors, placeholder);
+    color: $gray-light;
   }
 }
 
 %placeholder-text-focus {
   @include input-placeholder {
-    color: map-get($colors, placeholder--focus);
+    color: $gray;
   }
 }
 
@@ -29,4 +38,12 @@
   right: 0;
   bottom: 0;
   margin: auto;
+}
+
+%remove-padding {
+  padding: 0;
+}
+
+%remove-shadow {
+  @include box-shadow(none);
 }
