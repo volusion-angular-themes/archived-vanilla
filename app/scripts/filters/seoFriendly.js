@@ -1,9 +1,11 @@
 'use strict';
 
-module.exports = [function seoFriendly() {
-  return function(input) {
+angular.module('volusion.filters').filter('seoFriendly', [
+  function seoFriendly() {
+    return function(input) {
 
-    var words = input.match(/[0-9a-z]+/gi);
-    return words ? words.join('-') : '';
-  };
-}];
+      var words = input.match(/[0-9a-z]+/gi);
+      return words ? words.join('-') : '';
+    };
+  }
+]);

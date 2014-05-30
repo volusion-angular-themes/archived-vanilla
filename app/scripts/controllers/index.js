@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('IndexCtrl', [
   '$scope',
   '$state',
   function(
@@ -14,4 +14,4 @@ module.exports = [
     });
 
   }
-];
+]);
