@@ -6,29 +6,19 @@ describe('Service: apiProvider', function() {
   var api;
   var $httpBackend;
   var baseRoutePath = '/local/';
-
-  before(function() {
-    var customActions = {
-      'bar': { method: 'GET', headers: { 'baz': 'qux' } },
-      'update': {method: 'POST', headers: { 'foo': 'bar' } }
-    };
-
-    angular.module('volusionApp')
-
-      /*jshint camelcase: false */
-      // ReSharper disable once InconsistentNaming
-      .config(function(_apiProvider_) {
-        apiProvider = _apiProvider_;
-        apiProvider.setBaseRoute(baseRoutePath);
-        apiProvider.endpoint('test', customActions)
-          .route('cart');
-      });
-      /*jshint camelcase: true */
-  });
-
-  beforeEach(module('volusionApp'));
+  var customActions = {
+    'bar': { method: 'GET', headers: { 'baz': 'qux' } },
+    'update': {method: 'POST', headers: { 'foo': 'bar' } }
+  };
 
   /*jshint camelcase: false */
+  beforeEach(module('volusion.services', function(_apiProvider_) {
+      apiProvider = _apiProvider_;
+      apiProvider.setBaseRoute(baseRoutePath);
+      apiProvider.endpoint('test', customActions)
+        .route('cart');
+    }));
+
   // ReSharper disable InconsistentNaming
   beforeEach(inject(function(_api_, _$httpBackend_) {
     // ReSharper restore InconsistentNaming

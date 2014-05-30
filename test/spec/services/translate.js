@@ -6,13 +6,15 @@ describe('Service: translate', function() {
   var translate;
 
   // load the service's module
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusionApp', 'volusion.services'));
 
   // instantiate service
   // ReSharper disable once InconsistentNaming
+  /*jshint camelcase: false */
   beforeEach(inject(function(_translate_) {
     translate = _translate_;
   }));
+  /*jshint camelcase: true */
 
   it('exists', function() {
     expect(translate).to.exist;

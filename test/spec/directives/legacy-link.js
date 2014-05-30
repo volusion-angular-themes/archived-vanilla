@@ -4,7 +4,7 @@
 describe('Directive: legacyLink', function() {
 
   // load the directive's module
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusion.directives'));
 
   var element;
   var scope;
