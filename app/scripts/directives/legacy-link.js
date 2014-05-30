@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['$window', function($window) {
+angular.module('volusion.directives').directive('legacyLink', ['$window', function($window) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
@@ -11,4 +11,4 @@ module.exports = ['$window', function($window) {
       });
     }
   };
-}];
+}]);

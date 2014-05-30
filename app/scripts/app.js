@@ -2,18 +2,22 @@
 'use strict';
 var angular = require('angular');
 
+angular.module('volusion.controllers', ['ngSanitize', 'ui.router', 'volusion.services']);
+angular.module('volusion.directives', []);
+angular.module('volusion.filters', []);
+angular.module('volusion.services', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'services.config']);
+
 angular.module('volusionApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
     'ui.router',
     'seo',
-    'pascalprecht.translate',
-    require('./services/config').name,
-    require('../bower_components/vn-bem').name
-  ])
-  .provider('api', require('./services/api-provider'))
-  .provider('translate', require('./services/translate-provider'));
+    'services.config',
+    require('../bower_components/vn-bem').name,
+    // volusion modules
+    'volusion.controllers',
+    'volusion.directives',
+    'volusion.filters',
+    'volusion.services'
+  ]);
 
 angular.module('volusionApp')
   .config(function(
@@ -21,21 +25,10 @@ angular.module('volusionApp')
     $urlRouterProvider,
     $locationProvider,
     $windowProvider,
-    apiProvider,
     translateProvider,
     config) {
 
     var env = config.ENV;
-    apiProvider.setBaseRoute(env.API_URL);
-
-    apiProvider.endpoint('products').
-      route('/products/:code');
-    apiProvider.endpoint('categories').
-      route('/categories/:id');
-    apiProvider.endpoint('config').
-      route('/config');
-    apiProvider.endpoint('cart').
-      route('/cart');
 
     $locationProvider.html5Mode(true);
 
@@ -139,16 +132,5 @@ angular.module('volusionApp')
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
     $templateCache.put('views/about.html', require('./views/about.html'));
     $templateCache.put('views/contact.html', require('./views/contact.html'));
-    $templateCache.put('views/category.html', require('./views/category.html'));
-    $templateCache.put('views/product.html', require('./views/product.html'));
-  })
-  .factory('storage', require('./services/storage'))
-  .directive('legacyLink', require('./directives/legacy-link'))
-  .filter('seoFriendly', require('./filters/seoFriendly'))
-  .controller('IndexCtrl', require('./controllers/index'))
-  .controller('HomeCtrl', require('./controllers/home'))
-  .controller('StyleGuideCtrl', require('./controllers/style-guide'))
-  .controller('AboutCtrl', require('./controllers/about'))
-  .controller('ContactCtrl', require('./controllers/contact'))
-  .controller('CategoryCtrl', require('./controllers/category'))
-  .controller('ProductCtrl', require('./controllers/product'));
+  });
+

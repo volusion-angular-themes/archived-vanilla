@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('AboutCtrl', [
   '$scope',
   function(
     $scope) {
@@ -10,6 +10,5 @@ module.exports = [
       'AngularJS',
       'Karma'
     ];
-
   }
-];
+]);
