@@ -1,1 +1,5 @@
 @import "bootstrap/scaffolding";
+
+body {
+  @extend %font-smoothing;
+}

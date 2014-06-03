@@ -3,6 +3,7 @@
 // Core variables and mixins
 @import 'style-guide/variables'; // Custom Theme Variables & Configuration
 @import 'core/base/mixins';
+@import 'core/base/helpers';
 
 // Reset
 @import 'reset/normalize';
@@ -47,7 +48,27 @@
 @import 'components/js/carousel';
 
 // Volusion Components
-@import 'components/th/helpers';
+@import 'components/th/sprites-icons';
+@import 'components/th/sitelinks';
+@import 'components/th/cart-summary';
+@import 'components/th/link-list';
+@import 'components/th/header';
+@import 'components/th/footer';
+@import 'components/th/icon-group';
+@import 'components/th/search';
+@import 'components/th/elist';
+@import 'components/th/hero-promo';
+@import 'components/th/product-card';
+@import 'components/th/product-view';
+@import 'components/th/product-titles';
+@import 'components/th/product-prices';
+@import 'components/th/product-details';
+@import 'components/th/product-options';
+@import 'components/th/btn-dropdown';
+@import 'components/th/alt-views';
+@import 'components/th/input-labels';
+@import 'components/th/quantity';
+@import 'components/th/product-description';
 
 // Utility classes
 @import 'utilities/utilities';

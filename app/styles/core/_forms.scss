@@ -1,1 +1,5 @@
 @import "bootstrap/forms";
+
+input.form-control {
+  @extend %remove-shadow;
+}
