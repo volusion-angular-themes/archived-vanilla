@@ -20,51 +20,153 @@
       <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only" data-translate="index.toggleNav"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#" data-translate="index.bootstrapTheme">Bootstrap theme</a>
-        </div>
-        <div class="navbar-collapse collapse" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed=true">
-          <ul class="nav navbar-nav">
-            <li data-ui-sref-active="active">
-              <a data-ui-sref="i18n.home" data-translate="index.home">Home</a>
-            </li>
-            <li data-ui-sref-active="active">
-              <a data-ui-sref="i18n.style-guide" data-translate="index.styleGuide">Style Guide</a>
-            </li>
-            <li data-ui-sref-active="active">
-              <a data-ui-sref="i18n.about" data-translate="index.about">About</a>
-            </li>
-            <li data-ui-sref-active="active">
-              <a data-ui-sref="i18n.contact" data-translate="index.contact">Contact</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-translate="index.dropdown"></span> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#" data-translate="index.action"></a></li>
-                <li><a href="#" data-translate="index.anotherAction"></a></li>
-                <li><a href="#" data-translate="index.somethingElseHere"></a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header" data-translate="index.navHeader"></li>
-                <li><a href="#" data-translate="index.separatedLink"></a></li>
-                <li><a href="#" data-translate="index.oneMoreSeparatedLink"></a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+    <div class="container">
+        <header class="th-header">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-1 hidden-md hidden-lg">
+                        <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#th-main-nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-7 col-md-8">
+                        <a class="th-header__logo" href="#">Vanilla</a>
+                    </div>
+
+                    <div class="col-xs-3 col-sm-4">
+                        <div class="th-header__utility pull-right">
+                            <div class="hidden-xs th-sitelinks">
+                                <a href="#" class="th-sitelinks__link">Log in</a> /
+                                <a href="#" class="th-sitelinks__link">Register</a>
+                            </div>
+
+                            <div class="th-header__cart">
+                                <div class="th-cart-summary">
+                                    <a data-legacy-link="/checkout.asp" class="th-cart-summary__link" href="/checkout.asp">
+                                        <div class="th-icon th-icon--cart th-cart-summary__icon">
+                                            <div class="th-icon__foreground"></div>
+                                        </div>
+                                        <span class="th-cart-summary__number">0</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="collapse navbar-collapse" id="th-main-nav">
+                            <ul class="nav navbar-nav">
+                                <li data-ui-sref-active="active">
+                                  <a data-ui-sref="i18n.home" data-translate="index.home">Home</a>
+                                </li>
+                                <li data-ui-sref-active="active">
+                                  <a data-ui-sref="i18n.style-guide" data-translate="index.styleGuide">Style Guide</a>
+                                </li>
+                                <li data-ui-sref-active="active">
+                                  <a data-ui-sref="i18n.about" data-translate="index.about">About</a>
+                                </li>
+                                <li data-ui-sref-active="active">
+                                  <a data-ui-sref="i18n.contact" data-translate="index.contact">Contact</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="th-header__search">
+                            <form class="th-search" role="search">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default th-search__submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" class="form-control th-search__input" placeholder="Search...">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
     </div>
 
     <!-- Add your site or application content here -->
     <div class="theme-showcase" role="main" data-ui-view="" data-autoscroll="false"></div>
+
+    <div class="container">
+      <footer class="th-footer">
+          <div class="row">
+              <div class="col-sm-6 col-md-5">
+                  <div class="th-footer__heading">Helpful Links</div>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <ul class="th-linklist">
+                              <li class="th-linklist__item"><a href="#">About us</a></li>
+                              <li class="th-linklist__item"><a href="#">Contact</a></li>
+                              <li class="th-linklist__item"><a href="#">Terms &amp; Conditions</a></li>
+                              <li class="th-linklist__item"><a href="#">Privacy Policy</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-xs-6">
+                          <ul class="th-linklist">
+                              <li class="th-linklist__item"><a href="#">Shipping Information</a></li>
+                              <li class="th-linklist__item"><a href="#">Returns &amp; Exchanges</a></li>
+                              <li class="th-linklist__item"><a href="#">FAQ</a></li>
+                              <li class="th-linklist__item"><a href="#">My Account</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                  <div class="th-footer__heading">Social</div>
+                  <div class="th-icongroup">
+                      <a class="th-icon th-icon--facebook th-icongroup__icon" href="#" target="_blank">
+                          <div class="th-icon__foreground"></div>
+                      </a>
+                      <a class="th-icon th-icon--twitter th-icongroup__icon" href="#" target="_blank">
+                          <div class="th-icon__foreground"></div>
+                      </a>
+                      <a class="th-icon th-icon--pinterest th-icongroup__icon" href="#" target="_blank">
+                          <div class="th-icon__foreground"></div>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-sm-12 col-md-4">
+                  <div class="th-footer__heading">Sign up for our newsletter!</div>
+                  <div class="th-footer__elist">
+                      <form class="th-elist" role="form" name="MailingList">
+                          <div class="input-group">
+                              <input type="text" class="form-control th-elist__input" placeholder="email@example.com">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-primary th-elist__submit" type="button">Subscribe</button>
+                              </span>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+          <div class="th-footer__copyright">
+              Made with &#10084; by <a href="#">Awesome Theme Developer</a>. Built with <a href="#" target="_blank">Volusion</a>.
+          </div>
+      </footer>
+  </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>

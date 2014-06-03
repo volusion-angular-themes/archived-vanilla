@@ -59,10 +59,6 @@
   &::-webkit-input-placeholder { @content; }
 }
 
-@mixin font-smoothing($value: antialiased) {
-  -webkit-font-smoothing: $value;
-}
-
 // example: @include translucent-bg(@includeSmoke, 0.7);
 @mixin translucent-bg($color, $opacity) {
   background-color: $color;
@@ -93,5 +89,21 @@
   font: $font $family;
   @if $line-height and not $size {
     line-height: $line-height;
+  }
+}
+
+@mixin center-by($width: 0, $height: 0) {
+  @if $width == 0 and $height == 0 {
+    @warn "center-by() requires width or height above zero.";
+  }
+  display: block;
+  position: absolute;
+  @if $width > 0 {
+    left: 50%;
+    margin-left: $width / -2;
+  }
+  @if $height > 0 {
+    top: 50%;
+    margin-top: $height / -2;
   }
 }

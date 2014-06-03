@@ -1,1 +1,62 @@
 @import "bootstrap/navbar";
+
+.navbar-default {
+  margin-bottom: 0;
+
+  .navbar-toggle{
+    margin-right: 0;
+    margin-top: 8px;
+  }
+
+  .navbar-nav {
+    font-size: 2.0rem;
+
+        > .active {
+            > a,
+            > a:hover,
+            > a.focus {
+                text-decoration: underline;
+            }
+        }
+
+        > li {
+            > a:hover,
+            > a:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @include respond-to(md-and-up) {
+        .navbar-collapse.collapse {
+            padding: 20px 0;
+        }
+
+        .navbar-nav {
+            > li:first-child {
+                a {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.navbar-inverse {
+    margin-bottom: 0;
+
+    .navbar-toggle{
+        margin-right: 0;
+        margin-top: 8px;
+    }
+
+    .navbar-nav {
+        font-size: 2.0rem;
+    }
+
+    @include respond-to(md-and-up) {
+        .navbar-collapse.collapse {
+            padding: 0;
+        }
+    }
+}
