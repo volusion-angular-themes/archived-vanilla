@@ -1,0 +1,9 @@
+.th-product-view {
+	padding-top: 30px;
+	text-align: center;
+
+	&__link,
+	&__image {
+		@extend %inline-block;
+	}
+}
