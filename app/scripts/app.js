@@ -132,5 +132,6 @@ angular.module('volusionApp')
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
     $templateCache.put('views/about.html', require('./views/about.html'));
     $templateCache.put('views/contact.html', require('./views/contact.html'));
+    $templateCache.put('views/category.html', require('./views/category.html'));
+    $templateCache.put('views/product.html', require('./views/product.html'));
   });
-
