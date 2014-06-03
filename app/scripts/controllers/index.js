@@ -4,10 +4,16 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   '$scope',
   '$state',
   'api',
+  '$rootScope',
+  'tokenGenerator',
   function(
     $scope,
     $state,
-    api) {
+    api,
+    $rootScope,
+    tokenGenerator) {
+
+    $rootScope.seo = {};
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
       if (toState.name === 'i18n') {
@@ -21,32 +27,39 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
       }
     };
 
-    // Cart
-    api.cart.get().then(function (response) {
-        $scope.cart = response.data;
-        // TODO: REMOVE
-        console.log('Cart: ', response.data);
-      }, function (error) {
-        console.log('Error: ', error);
-      });
-
-    // Categories
-    api.categories.get().then(function (response) {
-        $scope.categories = response.data;
-        // TODO: REMOVE
-        console.log('Categories: ', response.data);
-      }, function (error) {
-        console.log('Error: ' + error);
-      });
-
-    // Config
-    api.config.get().then(function (response) {
+    this.getConfig = function (callbackFn) {
+      // Config
+      api.config.get(tokenGenerator.getCacheBustingToken()).then(function (response) {
         $scope.config = response.data;
+        angular.extend($rootScope.seo, $scope.config.seo);
+
         // TODO: REMOVE
         console.log('Config: ', response.data);
+
+        if (callbackFn) {
+          callbackFn($scope.config.checkout.cartId);
+        }
+
       }, function (error) {
+
         console.log('Error: ', error);
+
       });
+    };
+
+    this.getCart = function (cartId) {
+      // Carts
+      api.carts.get({ cartId: cartId })
+        .then(function (response) {
+          $scope.cart = response.data;
+          // TODO: REMOVE
+          console.log('Cart: ', response.data);
+        }, function (error) {
+          console.log('Error: ', error);
+        });
+    };
+
+    this.getConfig(this.getCart);
 
   }
 ]);
