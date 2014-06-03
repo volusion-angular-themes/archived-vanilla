@@ -168,7 +168,7 @@ angular.module('volusion.services')
       route('/categories/:id');
     apiProvider.endpoint('config').
       route('/config');
-    apiProvider.endpoint('cart').
+    apiProvider.endpoint('carts').
       route('/carts');
 
   }]);
