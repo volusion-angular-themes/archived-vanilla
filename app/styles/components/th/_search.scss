@@ -1,0 +1,20 @@
+.th-search {
+	&__submit,
+	&__input {
+		border-color: $gray-lighter;
+	}
+
+	&__submit {
+		padding: 12px 15px 8px;
+
+		&:hover {
+			@extend %opacity-75;
+			background: none;
+			border-color: $gray-lighter;
+		}
+	}
+
+	&__input {
+		padding: 20px 15px;
+	}
+}

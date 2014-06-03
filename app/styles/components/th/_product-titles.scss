@@ -1,0 +1,13 @@
+.th-product-title {
+	@extend %inline-block;
+	margin-bottom: 0.2em;
+	
+	&--medium {
+		font-size: 1.8rem;
+	}
+
+	&--large {
+		font-family: lato-light;
+		font-size: 4.0rem;
+	}
+}

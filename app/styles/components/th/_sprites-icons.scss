@@ -1,0 +1,37 @@
+$icon-spacing: 20px;
+@import "sprites/icons/*.png";
+
+@mixin sprite--icons($name) {
+  @include icons-sprite($name);
+  height: icons-sprite-height($name);
+  width: icons-sprite-width($name);
+}
+
+@mixin icon--icons($name, $has-large: false) {
+
+  &--#{$name} {
+
+    .th-icon__foreground {
+      @include sprite--icons($name);
+    }
+
+    @if $has-large {
+      &--large {
+        .th-icon__foreground {
+          @include sprite--icons(#{$name}--large);
+        }
+      }
+    }
+
+  }
+
+}
+
+.th-icon {
+  @extend %inline-block;
+
+  @each $sprite in cart, facebook, twitter, pinterest  {
+    @include icon--icons($sprite);
+  }
+
+}

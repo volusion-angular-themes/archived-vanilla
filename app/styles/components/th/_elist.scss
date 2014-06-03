@@ -1,0 +1,15 @@
+.th-elist {
+	max-width: 360px;
+
+	&__input {
+		border-color: $gray-lighter;
+		padding: 20px 15px;
+	}
+
+	&__submit {
+		@extend %font-smoothing;
+		font-weight: normal;
+		padding: 10px 15px;
+		z-index: 2;
+	}
+}
